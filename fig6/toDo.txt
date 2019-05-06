@@ -1,0 +1,6 @@
+Create setPathsAndParams: common to all
+Create model:		  common to all
+Plotting and rewards:	  keep local to each file
+
+Look at helper functions to see if there's any overlap 
+
