@@ -44,7 +44,7 @@ function rTime = computeRT(N,obj)
         
         % Fetching optimal parameters
         fname           = ['UCRM_' obj '_N' num2str(N(iN)) '_fitSigH.mat'];
-        load(['./optimParams_percep/' fname],'opttheta')
+        load(['../shared/optimParams_percep/' fname],'opttheta')
         p.model.u0      = opttheta(1);
         p.model.b       = opttheta(2);
         
