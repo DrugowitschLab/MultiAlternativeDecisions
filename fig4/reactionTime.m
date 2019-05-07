@@ -44,12 +44,12 @@ function rTime = computeRT(N,obj)
         
         % Fetching optimal parameters
         fname           = ['UCRM_' obj '_N' num2str(N(iN)) '_fitSigH.mat'];
-        load(['../shared/optimParams_percep/' fname],'opttheta')
+        load(['../shared/optimParams_paper/' fname],'opttheta')
         p.model.u0      = opttheta(1);
         p.model.b       = opttheta(2);
         
         % Running model
-        perf  = simulateDiffusion_percep(p,'UCRM',0);
+        perf  = simulateDiffusion(p,'UCRM',0);
         rTime(iN) = mean(perf.RT);
     end
 
