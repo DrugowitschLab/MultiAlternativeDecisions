@@ -25,6 +25,9 @@ elseif (taskType ~= 'p' && taskType ~= 'v')
     taskType = 'v';
 end
 
+% Starting directory
+startDir = pwd;
+
 % Objective function to optimize:
 switch taskType
     case 'p'            % perceptual
@@ -60,7 +63,7 @@ for iN = 1:length(N)
         perf(iN,iModel) = optobj; %#ok<AGROW>
     end
 end
-cd ..
+cd(startDir)
 clearvars -except perf N filenames mom_noise taskType
 
 
