@@ -25,7 +25,7 @@ nooptimiter = nargin < 5;
 if nargin < 4, noise = 0; end
 
 % adjust base parameters
-addpath('../shared/','../bads-1.0.4/','iiaViolation/');
+addpath('../shared/');
 p                   = baseParameters();
 p.sim.maxt          = 1;             % to save time, since max(RT) <= 0.6
 p.task.N            = N;
