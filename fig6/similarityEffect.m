@@ -52,12 +52,6 @@ r = commonDynamics(p, Z);
 
 
 %% Model
-% Note that the code below does not follow Equation 40 of the Supplementary
-% information of Tajima, S. et al. (2019) Nature Neuroscience. This is the
-% efficient, vectorised version of the implementation. Note that the order
-% of accumulation --> projection --> divisive normalization is maintained.
-% Using Equation 40 does not alter the results; they are mathematically 
-% equivalent.
 
 fprintf('Simulating the model for %i trials...\n', p.sim.nTrial)
 pm = p.model;

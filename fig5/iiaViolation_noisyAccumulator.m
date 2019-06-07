@@ -1,4 +1,4 @@
-function iiaViolation_inefficient(noise,scale_meanZ)
+function iiaViolation_noisyAccumulator(noise,scale_meanZ)
 %% IIA violn in UCRM (full model): 
 % UCRM: Urgency + Constraint (projection) added to the Race Model
 %
@@ -8,6 +8,8 @@ function iiaViolation_inefficient(noise,scale_meanZ)
 % chosen. We show that if we add divisive normalization and integration 
 % noise to our full model (UCRM) that approximates the optimal policy, we 
 % can reproduce this effect.
+%
+% In this script, noise is added to the accumulator at every time-step.
 
 
 %% Dependencies
@@ -29,12 +31,12 @@ end
 fprintf('Setting path variables and common parameters...\n')
 addpath('../shared/','../bads-1.0.4/'); %,'iiaViolation/');
 p = baseParameters;
-p.sim.nTrial = 1e5;   
+p.sim.nTrial = 1e6;   
 p.model.u0   = 0.7771;    % src: (UCRM_RR_N3noise1_fitSigH.mat>opttheta)
 p.model.b    = 0.0013;    % src: (UCRM_RR_N3noise1_fitSigH.mat>opttheta)
 p.sim.maxt   = 0.2;       % 200 ms
 scale_dt     = 5;
-scale_covX   = 50;
+scale_covX   = 1/noise;
 p.sim.dt     = p.sim.dt / scale_dt;
 p.sim.t      = 0:p.sim.dt:p.sim.maxt;
 p.task.covX  = p.task.covX / (scale_covX * scale_meanZ^2);
@@ -187,5 +189,4 @@ function plotVariationWNoise(X,p,Z,z2,z1BinBounds,z3BinBounds,fd)
                                                 'Location','northwest');
         title(lgd,'Rel. value of 3^{rd} option')
         title(['Noise = a.u.'])
-    end
-   
+end

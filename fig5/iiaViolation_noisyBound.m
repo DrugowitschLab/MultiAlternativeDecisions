@@ -1,4 +1,4 @@
-function iiaViolation(noise,scale_meanZ)
+function iiaViolation_noisyBound(noise,scale_meanZ)
 %% IIA violn in UCRM (full model): 
 % UCRM: Urgency + Constraint (projection) added to the Race Model
 %
@@ -8,6 +8,10 @@ function iiaViolation(noise,scale_meanZ)
 % chosen. We show that in the presence of internal variability, i.e. noisy
 % decision boundaries or equivalently noise added to the accumulators, we 
 % can reproduce this effect.
+%
+% In this script, noise is added to the accumulator only at the end of the 
+% integration (evidence accumulation) process. This can be thought of as
+% adding noise to the decision bound itself.
 
 
 %% Dependencies
@@ -46,13 +50,6 @@ fprintf('Drawing rewards and generating reward-dependent dynamics... \n')
 r = commonDynamics(p, Z);
 
 %% Model
-% Note that the code below does not follow Equation 40 of the Supplementary
-% information of Tajima, S. et al. (2019) Nature Neuroscience. This is the
-% efficient, vectorised version of the implementation. Note that the order
-% of accumulation --> projection --> divisive normalization is maintained.
-% Using Equation 40 does not alter the results; they are mathematically 
-% equivalent. For an example of the other implementation, check out
-% iiaViolation_inefficient.m
 
 fprintf('Simulating the model for %i trials...\n', p.sim.nTrial)
 pm = p.model;
@@ -82,11 +79,11 @@ sigH = -min(sum(X(:,:,end),2));   % proxy for optimal sigH: avoids div by 0
 s    = sum(X,2) + sigH;
 
 % steady state implementation
-Y = K*(X)./s;           % divisive normalization
-Y = mvnrnd(Y(:,:,end), noise *scale_covX * scale_meanZ^2 * p.task.covX);
+X = K*(X)./s;           % divisive normalization
+X = mvnrnd(X(:,:,end), noise *scale_covX * scale_meanZ^2 * p.task.covX);
 
 % Choose the maximum valued option at the end of the race
-[~,choice] = max(Y,[],2);
+[~,choice] = max(X,[],2);
 
 
 %% Plotting
