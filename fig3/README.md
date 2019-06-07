@@ -2,7 +2,7 @@
 
 ## Plotting performance data
 
-A cached version of the performance data is stored in the MultiAlternativeDecisions/shared/optimParams_paper folder. If you change the folder structure on your system, make sure that you change the path in the plot file. To plot this data, use
+A cached version of the performance data is stored in the MultiAlternativeDecisions/shared/optimParams_paper folder. If you change the folder structure on your system, make sure that you change the path in the plot file below. To plot this data, use
 ```
 plot_relativeModelPerformance()    % add argument 'v' for value-based (default), 'p' for perceptual
 ```
