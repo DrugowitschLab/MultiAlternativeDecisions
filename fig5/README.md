@@ -10,7 +10,7 @@ at the MATLAB command line. Note that we have obtained the data part of Figure 5
 
 ## Plotting IIA violation
 
-We achieve the IIA violation (Figure 5b) by adding noise to the accumulator, or to the decision bounds. To plot the IIA violation, use 
+We achieve the IIA violation (Figure 5b) by adding noise to the accumulator or to the decision bounds. To plot the IIA violation, use 
 ```
 iiaViolation_noisyBound
 ```
