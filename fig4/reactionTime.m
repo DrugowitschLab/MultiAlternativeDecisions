@@ -58,7 +58,6 @@ function plotHick(N,rTime)
     mdl = fitlm(n,rTime);
     r_sq = mdl.Rsquared.Ordinary;
     disp(mdl)
-%{
     figure()
     semilogx(N+1,rTime,'o-','MarkerSize',10,'Linewidth',2)
     xticklabels({'2','3','4','','6','','8'})
@@ -68,4 +67,3 @@ function plotHick(N,rTime)
     text(7, 0.29, ['R^2 = ' num2str(r_sq)],'FontSize',20)
     set(gca,'FontSize',24)
     box off
-    %}
