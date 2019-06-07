@@ -2,7 +2,7 @@
 
 ## Plotting buildup and offset of the urgency signal
 
-Figures 4a-b of the paper correspond to the buildup and offset (initial point, u_0) of the urgency signal. To plot these, use
+Figures 4a-b of the paper correspond to the buildup and offset (initial point, u_0) of the urgency signal.  To plot these, use
 ```
 urgency_buildup_offset
 ```
@@ -10,7 +10,9 @@ at the MATLAB command line. Note that the data parts of Figures 4a-b (top) have 
 
 ## Plotting Hick's law
 
-Figure 4c corresponds to Hick's law. To plot this for value-based and perceptual decisions, use
+A cached version of the performance data is stored in the MultiAlternativeDecisions/shared/optimParams_paper folder, which is used to compute the reaction times for Figure 4c (Hick's law). If you change the folder structure on your system, make sure that you change the path in the plot file.
+
+To plot Hick's law for value-based and perceptual decisions, use
 ```
 reactionTime
 ```
