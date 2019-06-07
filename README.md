@@ -5,7 +5,7 @@ Code for Tajima et al. (2019). Optimal policy for multi-alternative decisions. N
 
 All scripts are written in MATLAB and have been tested with MATLAB R2018b. They should also run on earlier versions of MATLAB.
 
-To run the scripts, [download them](https://github.com/DrugowitschLab/MultiAlternativeDecisions/archive/master.zip), and extract them into a folder of your choice, and navigate to this folder within MATLAB.
+To run the scripts, [download them](https://github.com/DrugowitschLab/MultiAlternativeDecisions/archive/master.zip), extract them into a folder of your choice, and navigate to this folder within MATLAB.
 
 ## Usage
 
