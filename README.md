@@ -1,5 +1,5 @@
 # MultiAlternativeDecisions
-Code for Tajima et al. (2019). Optimal policy for multi-alternative decisions. Nature Neuroscience.
+Code for [Tajima et al. (2019). Optimal policy for multi-alternative decisions. _Nature Neuroscience_.](https://www.nature.com/articles/s41593-019-0453-9)
 
 ## Installation
 
